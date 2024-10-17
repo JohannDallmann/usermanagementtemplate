@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:5173")
 public class HelloWorldController {
 
-    @GetMapping()
-    public String sayHelloWorld(){
-        return "Hello World!";
+    @GetMapping("/user")
+    public String sayHelloUser(){
+        return "Hello User!";
+    }
+
+    @GetMapping("/admin")
+    public String sayHelloAdmin(){
+        return "Hello Admin!";
     }
 }
