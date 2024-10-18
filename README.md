@@ -33,4 +33,5 @@ Einrichten von Keycloak
 
 Konfigurationsdateien
 1. In application.yml müssen spring.application.name, issuer-uri, server.port, resource-id für Projekt konfiguriert werden.
-2. Über postman kann der Endpoint angesprochen werden: GET http://localhost:8080/helloworld/user (Authorization: gültigen Token einfügen)
+2. Über postman kann der Endpoint angesprochen werden: GET http://localhost:8080/helloworld/user (Authorization: Bearer Token wählen, gültigen Token einfügen)
+3. In CorsConfiguration muss angepasst werden, welcher origin Zugriff auf welche Endpoints haben soll (standardmäßig alles erlaubt)
