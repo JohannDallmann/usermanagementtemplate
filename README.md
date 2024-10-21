@@ -16,6 +16,12 @@ Einrichten von Keycloak
 1. Keycloak ist unter gesetztem port (localhost:8090) erreichbar
 2. Initial admin-Account erstellen. Hier: admin mit PW "admin"
 3. realm und client anlegen/importieren (gute Erklärung: https://www.youtube.com/watch?v=vmEWywGzWbA)
+   - im package "security" liegt usermanagementtemplaterealm.json (enthält auch client) für Import
+   - kann für Realmimport verwendet werden, wodurch die meisten der folgenden Konfigurationsschritte entfallen
+   - Export über gitbash (in bin-Ordner von Keycloak navigieren):
+```
+   ./kc.sh export --realm=<DEIN_REALM_NAME> --file=<PFAD_ZUM_EXPORT>.json
+```
 4. über dropdown kann realm ausgewählt werden, unter clients liegt usermanagementtemplate-client und kann angepasst werden
 5. in "client scopes" öffentliche Attribute auswählen, in "realm roles" Rollen anlegen (z.B. User/Admin) 
 6. in "User" konkrete Nutzer anlegen (unter credentials Passwort anlegen). Hier: admin1 und user1 mit PW "test"
@@ -30,6 +36,9 @@ Einrichten von Keycloak
     - key: passowrd, value: test
     Wichtig: Mail und Name des Users müssen gesetzt sein, sonst gibt es einen bad request
 11. Token-Details über jwt.io auswerten
+12. unter Realm Settings: 
+    - Tokens: "Access Token Lifespan" Tokenlaufzeit einstellen
+    - Sessions: SSO Session Idle sollte länger als Tokenlaufzeit eingestellt sein
 
 Konfigurationsdateien
 1. In application.yml müssen spring.application.name, issuer-uri, server.port, resource-id für Projekt konfiguriert werden.
